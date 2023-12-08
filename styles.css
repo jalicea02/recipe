@@ -1,0 +1,167 @@
+body{
+    display: grid;
+    background-color: rgba(122, 191, 191, .5);
+    grid-template-areas:
+        "nav"
+        "header"
+        "main"
+        "aside"
+        "footer";
+}
+
+/*Header*/
+
+header, nav, main, aside, footer{
+    width: 414px;
+    margin: 0 auto;
+    background-color: #F2F2F2;
+}
+
+header{
+    grid-area: header;
+}
+
+header menu{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    list-style: none;
+}
+
+menu label{
+    display: block;
+    text-transform: uppercase;
+    color: #EB5428;
+}
+header img{
+    width: 414px;
+}
+
+/*Search*/
+
+#search{
+    position: relative;
+    left: 50px;
+}
+
+#search svg{
+    height: 32px;
+    stroke: #ffffff;
+}
+
+#search input{
+    height: 35px;
+    width: 250px;
+}
+
+#search button{
+    height: 35px;
+    position: relative;
+    top: 13px;
+    right: 5px;
+    background-color: #EB5428;
+}
+
+#search label{
+    display: none;
+}
+
+/*Main*/
+
+main{
+    grid-area: main;
+}
+
+/*Aside*/
+
+aside{
+    grid-area: aside;
+}
+
+/*Navigation*/
+
+nav{
+    grid-area: nav;
+    display: grid;
+}
+
+nav h2{
+    display: none;
+}
+
+[href="#home"]{
+    background-color: #EB5428;
+    font-size: 30px;
+    position: absolute;
+    top: 15px;
+    z-index: 1;
+}
+
+[href="#sign"]{
+    color: #0D0D0D;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 30px;
+    position: absolute;
+    top: 15px;
+    z-index: 1;
+}
+
+nav ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+label {
+    cursor: pointer;
+    display: inline-block;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+label span {
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+label span:before, label span:after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+label span:before {
+    top: 5px;
+}
+label span:after {
+    top: -5px;
+}
+nav input {
+    display: none;
+}
+nav input:checked ~ ul {
+    max-height: 500px;
+}
+nav input:checked ~ label span {
+    background: transparent;
+}
+nav input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+nav input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+nav input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+
+/*Footer*/
+
+footer{
+    grid-area: footer;
+}
